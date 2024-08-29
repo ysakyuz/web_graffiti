@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Gallery</title>
+    <link rel="stylesheet" href="stylegalleryandlogin.css">
+</head>
+<body background="img/ExhibitionRoom.png">
+    <h1>Gallery</h1>
+    <div id="gallery-container">
+        <!-- Örnek galeri içeriği. Dinamik içerik JavaScript ile yüklenecek -->
+        <button id="prev-button" class="navigation-button">&lt;</button>
+        <div id="picturesPlace"></div>
+        <button id="next-button" class="navigation-button">&gt;</button>
+    </div>
+    
+    <button id="save-picture-button" onclick="savePicture()">Save Picture</button>
+    <button id="delete-picture-button" onclick="deletePicture()">Delete Picture</button>
+
+    <button id="cancel-button" onclick="closeGallery()">Cancel</button>
+  
+    <div class="button-container-gallery"></div>
+    
+    <div id="category-container"></div>
+
+    <script src="gallery.js"></script>
+
+</body>
+</html>

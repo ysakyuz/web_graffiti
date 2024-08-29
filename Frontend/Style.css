@@ -1,0 +1,456 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  position: relative;
+  height: 100vh;
+  padding: 10px;
+  z-index: 3;
+}
+
+.color-swatch {
+  position: relative; /* Ajouté pour positionner absolument les boutons de suppression */
+  width: 30px; /* Taille cohérente pour les carrés de couleur */
+  height: 30px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Style pour les boutons de suppression */
+.remove-color-button {
+  position: absolute;
+  bottom: 2px; /* Ajustement pour positionner le bouton de suppression à partir du bas du carré */
+  right: 2px; /* Ajustement pour positionner le bouton de suppression à partir de la droite du carré */
+  width: 5px; /* Largeur du bouton de suppression */
+  height: 5px; /* Hauteur du bouton de suppression */
+  font-size: 2px; /* Taille du texte "X" */
+  border: none; /* Retirer la bordure par défaut */
+  background: transparent; /* Rendre le fond du bouton transparent */
+  cursor: pointer; /* Indiquer que le bouton est cliquable */
+}
+
+/* Effet visuel pour les zones cliquables */
+.clickable-area:hover {
+  cursor: pointer;
+}
+
+/* Conteneur pour la palette de couleurs */
+#color-palette-container {
+  border: 1px solid black;
+  display: block;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 80px;
+  height: 590px;
+  padding: 5px;
+  margin-right: 10px; /* Espace entre la palette de couleurs et le canvas */
+  margin-top: 10px;
+  z-index: 3;
+}
+
+/* Bouton de couleur personnalisée */
+#custom-color-btn {
+  height: 30px; /* Hauteur augmentée pour être cohérente avec .color-option */
+  margin: 2px;
+  cursor: pointer;
+}
+
+/* Canvas de dessin */
+#drawing-canvas {
+  border: 1px solid #000;
+  margin-top: 10px;
+  width: 600px; /* Largeur définie ici pour un ajustement cohérent */
+  height: 600px; /* Hauteur définie ici pour un ajustement cohérent */
+  z-index: 3; /* S'assure qu'il est au-dessus de l'image de fond */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: white;
+}
+
+/* Conteneur général pour le canvas et les palettes */
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute; /* Supprime la redondance, utilisée une seule fois */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#stroke-size-selector {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  left: 10px; /* Ajustez si nécessaire */
+  bottom: 10px; /* Ajustez si nécessaire */
+  z-index: 3;
+}
+
+#stroke-size-selector label {
+  margin-right: 10px;
+}
+
+#stroke-size {
+  width: 100%; /* Tam genişlik vererek daha kullanışlı hale getirin */
+  cursor: pointer; /* Kullanıcıya kaydırıcı olduğunu belirtin */
+  /* Özelleştirilmiş kaydırıcı stilleri */
+}
+
+
+#buttons {
+  display: flex; /* Utilisez Flexbox */
+  flex-direction: column; /* Dispose les éléments en colonne */
+  align-items: flex-start; /* Alignez les éléments à gauche du conteneur flex */
+  position: absolute; /* Position absolue par rapport au parent */
+  right: 10px; /* À droite de la page */
+  top: 10px; /* À partir du haut de la page */
+  z-index: 5; /* S'assure que les boutons sont au-dessus des autres éléments */
+}
+
+/* Style for pop-up background */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Style for pop-up content */
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px; /* Width can be adjusted as needed */
+}
+
+/* Bouton de fermeture des popups */
+.close-button, .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover, .close:hover,
+.close-button:focus, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styles pour les éléments de formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form label {
+  margin-bottom: 5px;
+}
+
+form input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Styles pour les boutons dans les formulaires et ailleurs */
+form button {
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, form button:hover {
+  background-color: #4cae4c;
+}
+
+
+#backgroundImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;  
+  z-index: 1;
+}
+#interactive-image img {
+  width: 100%; /* Resmi konteynerin genişliğine göre ölçeklendirir */
+  height: auto; /* Resmin yüksekliğini orantılı bir şekilde ayarlar */
+}
+
+
+body {
+  
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background-attachment: fixed;*/
+  margin: 0;
+  /*height: auto; Tam ekran yüksekliği */
+  /*overflow:auto;*/
+  /*background-color: #f7f7f7; */
+}
+
+
+/* Style for the button container */
+.button-container {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Conteneur pour les outils de dessin */
+#tools {
+  margin-left: 10px; 
+}
+
+#tools button {
+  margin-bottom: 10px;
+}
+
+/* Style for pop-up background */
+.colorpopup {
+  
+
+  width: 1px;
+  background: linear-gradient(90deg, blue, red);
+  border-radius: 500px;
+  box-sizing: border-box;
+  color: #ecece1;
+  display: block;
+  font-weight: 500;
+  overflow: hidden;
+  padding: 1.8rem 5rem;
+  position: relative;
+  text-transform: uppercase;
+
+
+
+
+  display: none; /* Hidden by default */
+  position:absolute;
+  z-index: 2; /* Sit on top */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px; /* Minimum genişlik */
+  max-width: 80%; /* Maksimum genişlik */
+  min-height: 150px; /* Minimum yükseklik */
+  max-height: 80%; /* Maksimum yükseklik */
+  padding: 20px; /* Inner space */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(255, 255, 255); /* Black w/ opacity */
+}
+
+
+.button-container-afterlogin {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+
+}
+
+#deleteConfirmationForm{
+  display: none;
+}
+
+/* Styles pour aligner les boutons radio avec les autres boutons */
+.radio-group {
+  display: flex; /* Utilisez Flexbox pour aligner les éléments horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+  gap: 5px; /* Espace entre le label et le bouton radio */
+}
+
+.radio-group label {
+  margin: 0;
+  font-size: 16px; /* Taille de police cohérente avec les autres boutons */
+}
+
+.radio-group input[type="radio"] {
+  margin: 0; /* Retirez la marge par défaut */
+}
+
+
+#save-button {
+  padding: 10px 15px;
+   
+  background-color: #5cb85c;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#save-button:hover {
+  background-color: #4cae4c;
+}
+
+/* Bouton pour ouvrir le formulaire des catégories */
+#category-button {
+  z-index: 5; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+#category-button:hover {
+  background-color: #4cae4c;
+}
+
+/* Styles pour le formulaire des catégories */
+#category-form {
+  position: absolute; /* Positionnement absolu pour le placer précisément */
+  right: 200px; /* Décale le formulaire de 50px à gauche du bouton */
+  top: 40px; /* Le placer en dessous du bouton "Choisir des catégories" avec un petit espace */
+  width: auto; /* Ou une largeur spécifique si nécessaire */
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Ombre */
+  z-index: 5; 
+  display: none; /* Caché par défaut, affiché via JavaScript */
+}
+
+
+#category-select {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%; /* Assurez-vous que le select s'adapte à la largeur du formulaire */
+  min-height: 100px; /* Hauteur pour montrer qu'il s'agit d'une sélection multiple */
+  overflow-y: auto; /* Permettre le défilement si nécessaire */
+}
+
+#submit-categories {
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Permet au bouton de s'étendre sur toute la largeur */
+  box-sizing: border-box; /* Assurez-vous que le padding est inclus dans la largeur */
+}
+
+#submit-categories:hover {
+  background-color: #4cae4c;
+}
+
+/* Style pour chaque bouton pour s'assurer qu'ils ont la même largeur */
+#buttons button, #buttons .radio-group {
+  width: 100%; /* Chaque bouton prend la pleine largeur du conteneur #buttons */
+  margin-bottom: 10px; /* Espace entre les boutons */
+}
+
+#categoryPicture{
+  position: absolute;
+  right: 50px;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 100px;
+  background-color: #888;
+}
+
+
+
+
+.btn-55,
+.btn-55 *,
+.btn-55 :after,
+.btn-55 :before,
+.btn-55:after,
+.btn-55:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+.btn-55 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+}
+.btn-55:disabled {
+  cursor: default;
+}
+.btn-55:-moz-focusring {
+  outline: auto;
+}
+.btn-55 svg {
+  display: block;
+  vertical-align: middle;
+}
+.btn-55 [hidden] {
+  display: none;
+}
+.btn-55 {
+  width: 1px;
+  background: linear-gradient(90deg, blue, red);
+  border-radius: 500px;
+  box-sizing: border-box;
+  color: #000;
+  display: block;
+  font-weight: 500;
+  overflow: hidden;
+  padding: 1.8rem 5rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.btn-55 span {
+  
+  background: #1e293b;
+  border-radius: 500px;
+  color: #fff;
+  display: grid;
+  inset: 4px;
+  place-items: center;
+  position: absolute;
+  transition: background 0.3s;
+}
+.btn-55:hover span {
+  background: none;
+}

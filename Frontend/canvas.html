@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Drawing</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<!-- Image background -->
+<img id="backgroundImage" src="img/Brickwall.PNG" alt="Background Image">
+
+
+<div class="main-container">
+    <!-- Conteneur pour la palette de couleurs -->
+    <div id="color-palette-container">
+        <!-- Les couleurs seront ajoutées ici dynamiquement par le script -->
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="drawing-canvas" width="600" height="600"></canvas> <!-- Retiré width et height inline, défini dans CSS -->
+    
+    <!-- Outils de dessin -->
+    <div id="tools">
+        
+        <button id="eraser-tool">Eraser</button>
+        <button id="undo-button">Undo</button> 
+
+
+        <div id="stroke-size-selector">
+            <label for="stroke-size">Taille du trait:</label>
+            <input type="range" id="stroke-size" min="1" max="20" value="5">
+        </div>
+        
+
+    </div>
+
+    <div id="buttons">
+        
+        <button id="restart-button">Restart</button>
+        <button id="publicGallery">My Gallery</button>
+        <button id="category-button">Choose categories</button>
+        <button id="save-button">Save</button>
+        <div class="radioStatus">
+          <input type="radio" id="private" name="visibility" value="private" checked>
+          <label for="private">private</label>
+          <input type="radio" id="public" name="visibility" value="public">
+          <label for="public">public</label>
+        </div>
+      </div>
+
+
+
+<!-- Le formulaire de catégories (caché par défaut) -->
+<div id="categoryPicture" style="display:none;">
+    <div>
+        <input type="checkbox" value="Paysages" name="categories">
+        <label>Paysages</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Portraits" name="categories">
+        <label>Portraits</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Animaux" name="categories">
+        <label>Animaux</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Voyages" name="categories">
+        <label>Voyages</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Ville" name="categories">
+        <label>Ville</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Nocturne" name="categories">
+        <label>Nocturne</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Urbain" name="categories">
+        <label>Urbain</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Nature" name="categories">
+        <label>Nature</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Nourriture" name="categories">
+        <label>Nourriture</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Sport" name="categories">
+        <label>Sport</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Architecture" name="categories">
+        <label>Architecture</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Mode" name="categories">
+        <label>Mode</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Art" name="categories">
+        <label>Art</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Musique" name="categories">
+        <label>Musique</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Technologie" name="categories">
+        <label>Technologie</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Espace" name="categories">
+        <label>Espace</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Véhicules" name="categories">
+        <label>Véhicules</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Plage" name="categories">
+        <label>Plage</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Forêt" name="categories">
+        <label>Forêt</label>
+    </div>
+    <div>
+        <input type="checkbox" value="Montagne" name="categories">
+        <label>Montagne</label>
+    </div>
+</div>
+
+
+<script src="scriptcanvas.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio de Graffiti Interactif</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="button-container-afterlogin">
+        <!-- user non connecté -->
+        <button id="loginBt" class="btn-55"><span>Login</span></button>
+        <button id="subscribeBt" class="btn-55"><span>Subscibe</span></button>
+        <!-- user connecté-->
+        <button id="publicGallery" class="btn-55"><span>Public gallery</span></button><!-- apparait dans les 2 cas -->
+        <button id="myGalleryBt" class="btn-55"><span>My gallery</span></button>  
+        <button id="logoutBt" class="btn-55"><span>Logout</span></button>    
+        <button id="modifyAccountBt" class="btn-55"><span>Modify account</span></button>
+        <button id="deleteAccountBt" class="btn-55"><span>Delete account</span></button>
+    </div>
+
+    <!-- Pop-up for Login -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close"></span>
+            <form id="loginForm">
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <button type="submit" id="submitLogin">Login</button>
+                <button type="submit" id="cancelLogin">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pop-up for Inscrire -->
+    <div id="registerPopup" class="popup">
+        <div class="popup-content">
+            <span class="close"></span>
+            <form id="registerForm">
+                <label for="firstname">Prenom:</label>
+                <input type="text" id="firstname" name="firstname">
+                <label for="lastname">Nom:</label>
+                <input type="text" id="lastname" name="lastname">
+                <label for="pseudo">Pseudo</label>
+                <input type="pseudo" id="pseudo" name="pseudo">
+                <label for="email">E-mail:</label>
+                <input type="text" id="emailSubscribe" name="email">
+                <label for="passwordRegister">Password:</label>
+                <input type="password" id="passwordRegister" name="password">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword">               
+                <button type="submit" id="submitSubscribeBt">Inscrire</button>
+                <button id="cancelSubscribe">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pop-up for modify acount -->
+    <div id="modifyPopup" class="popup">
+        <div class="popup-content">
+            <span class="close"></span>
+            <form id="registerForm">
+                <label for="firstname">Prenom:</label>
+                <input type="text" id="firstnameModify" name="firstname">
+                <label for="lastname">Nom:</label>
+                <input type="text" id="lastnameModify" name="lastname">
+                <label for="email">E-mail:</label>
+                <input type="text" id="emailModify" name="email">
+                <label for="passwordRegister">New password:</label>
+                <input type="password" id="passwordModify" name="password">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPasswordModify" name="confirmPassword">
+                
+                <button type="submit" id="modifySubmitBt">Inscrire</button>
+                <button id="cancelModify">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteConfirmationForm" class="popup">
+        <div class="popup-content">
+            <span class="close"></span>
+            <form id="deleteForm">
+                <p> Etes-vous sur de vouloir supprimer votre compte ?</p>
+                <button type="submit" id="submitDelete">Delete</button>
+                <button type="submit" id="cancelDelete">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-------------------------------------------------------
+        * valentin yasin
+    --------------------------------------------------------->
+
+<ul id="colorList"></ul>
+<div id="colorSquares"></div> <!-- Cette div est pour les carrés de couleur -->
+
+<div id="interactive-image">
+    <img src="img/FrontPageFinalcopie.jpg" alt="Studio de Graffiti" usemap="#image-map">
+    <map name="image-map">
+        <area id="backpack-area" class="clickable-area" shape="rect" coords="120,512,480,1010" alt="Sac à dos" href="#" data-original-coords="120,512,480,1010">
+        <area id="spray-can-area" class="clickable-area" shape="rect" coords="519,784,1400,986" alt="Bonbonnes de spray" href="#" data-original-coords="519,784,1400,986">
+    </map>
+</div>
+
+<!-- Popup pour la selection des couleurs -->
+<div id="colorPickerPopup" class="colorpopup">
+    <span class="close" onclick="closeColorPickerPopup()">&times;</span>
+    <h3>Choisissez vos couleurs</h3>
+    <input type="color" id="colorWheel">
+    <button onclick="addColor()">Ajouter</button>
+    <ul id="colorListPopup" class="color-list-popup"></ul>
+    <button onclick="closeColorPickerPopup()">Fermer</button>
+</div>
+
+<!-- Popup confirmation pour le backpack -->
+<div id="backpackPopup" class="colorpopup">
+    <span class="close" onclick="closeBackpackPopup()">&times;</span>
+    <h3>Vos couleurs choisies</h3>
+    <div id="selectedColors"></div>
+    <button onclick="confirmSelection()">Confirmer et Continuer</button>
+    <button onclick="closeBackpackPopup()">Fermer le sac</button>
+</div>
+
+    <script src="index.js"></script>
+</body>
+</html>

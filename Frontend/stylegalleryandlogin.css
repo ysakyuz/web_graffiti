@@ -1,0 +1,140 @@
+body {
+
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh; /* Tam ekran yüksekliği */
+    overflow: hidden; /* Gereksiz kaydırmayı önler */
+    background-color: #f7f7f7;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:scroll ;
+}
+
+
+
+.button-container-gallery {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Galeri butonları için merkezde olacak */
+    padding: 20px;
+}
+
+
+.button-container {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    padding: 10px;
+}
+
+
+#gallery-container {
+    position: relative; /* İçeriklerini pozisyonlamak için relative */
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 35px;
+}
+
+#cancel-button {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navigation-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#prev-button {
+    color: green; 
+    font-size: 19px;
+    background-color:black;
+    left: 10px; /* Sol ok sol tarafa */
+}
+
+#next-button {
+    color: green;
+    font-size: 19px;
+    background-color: #000;
+    right: 10px; /* Sağ ok sağ tarafa */
+    
+}
+
+#delete-picture-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+#category-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    background-color: #000;
+    color: #fff;
+    opacity: 0.75;
+    margin: auto;
+    border-radius: 50px;
+}
+
+.category-button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 50px;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+/* Add any additional styling you need here */
+#actualPicture{
+    width: 300px;
+    height: auto;
+}
